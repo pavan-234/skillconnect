@@ -1,11 +1,10 @@
-import express from "express";
-import { registerUser, loginUser, getUserProfile } from "../controllers/authController.js";
-import { protect } from "../middlewares/authMiddleware.js";
+const express = require("express");
+const authMiddleware = require("../middleware/authMiddleware"); // ✅ Ensure the correct path
 
 const router = express.Router();
 
-router.post("/register", registerUser);
-router.post("/login", loginUser);
-router.get("/profile", protect, getUserProfile);
+router.get("/protected", authMiddleware, (req, res) => {
+  res.json({ message: "You are authenticated!" });
+});
 
-export default router;
+module.exports = router;
