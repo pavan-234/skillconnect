@@ -6,6 +6,7 @@ const authRoutes = require("./routes/authRoutes");
 dotenv.config();
 connectDB();
 
+//create express
 const app = express();
 app.use(express.json());
 
