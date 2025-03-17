@@ -13,5 +13,6 @@ app.use(express.json());
 // Authentication routes
 app.use("/api/auth", authRoutes);
 
+//port 5000
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
